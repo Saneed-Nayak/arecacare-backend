@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 9
+names: ['Bud_Borer', 'Healthy_Foot', 'Healthy_Leaf', 'Healthy_Nut', 'Healthy_Trunk', 'Mahali_Koleroga', 'Stem_Bleeding', 'Stem_Cracking', 'Yellow_Leaf_Disease']
+
+roboflow:
+  workspace: gopis-workspace-k8yhu
+  project: arecanut-disease-detection-smudn
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/gopis-workspace-k8yhu/arecanut-disease-detection-smudn/dataset/1
