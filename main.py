@@ -770,8 +770,14 @@ def validate_plant_image(image: Image.Image):
 
     # is a portrait/person photo rather than a clear plant-part image.
 
-    face_like = face_count > 0 and largest_face_ratio >= 0.008
-
+    # Haar face detection can produce false positives on leaflets and
+    # disease spots. Only reject a face when it is relatively large and
+    # the image does not strongly look like plant material.
+    face_like = (
+        face_count > 0
+        and largest_face_ratio >= 0.08
+        and plant_ratio < 0.45
+    )
     object_like = len(reject_objects) > 0
 
 
@@ -1767,7 +1773,13 @@ async def gradcam(file: UploadFile = File(...)):
             "gradcam_image": result["image"],
 
         }
+
+
+
     except Exception as e:
+
+
+
         raise HTTPException(
 
             status_code=400,
