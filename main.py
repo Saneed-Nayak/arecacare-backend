@@ -1302,7 +1302,7 @@ def generate_gradcam(image: Image.Image):
 
 app = FastAPI(
 
-    title="ArecaCare AI API",
+    title="Smart disease detection in areca nut plantation API",
 
     version="2.0.0"
 
